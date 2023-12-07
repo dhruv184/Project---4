@@ -29,6 +29,7 @@ class appGUI:
         self.button_find = tk.Button(master , text = "Find Book" , command = self.find_book)
         self.button_save = tk.Button(master , text = "Save Data" , command = self.save_books)
         self.button_update = tk.Button(master , text = "Update Book" , command = self.update_book)
+        self.button_delete = tk.Button(master , text = "Delete Product" , command = self.delete_book)
         self.button_exit = tk.Button(master , text = "Exit" , command = self.master.destroy)
 
         self.label_id.grid(row = 0 , column = 0 , padx = 10 , pady = 5)
@@ -45,7 +46,8 @@ class appGUI:
         self.button_find.grid(row = 5 , column = 0 , columnspan = 2 , pady = 10)
         self.button_save.grid(row = 6 , column = 0 , columnspan = 2 , pady = 10)
         self.button_update.grid(row = 7 , column = 0 , columnspan = 2 , pady = 10)
-        self.button_exit.grid(row = 8 , column = 0 , columnspan = 2 , pady = 10)
+        self.button_delete.grid(row = 8 , column = 0 , columnspan = 2 , pady = 10)
+        self.button_exit.grid(row = 9 , column = 0 , columnspan = 2 , pady = 10)
 
     def view_books(self):
 
@@ -95,6 +97,18 @@ class appGUI:
 
         self.library.updateBook(book)
         self.clear_entries()
+    
+    def delete_book(self):
+        book_id = self.entry_id.get()
+        book = self.library.findBooks(book_id)
+        self.display_box.delete(1.0, tk.END)  
+        if isinstance(book, Book):
+            self.display_box.insert(tk.END, f"Deleting Product:\n{str(book)}\n")
+            self.library.getBooks().remove(book)
+            self.display_box.insert(tk.END, f"Product with id = {book_id} deleted successfully")
+        else:
+            self.display_box.insert(tk.END, f"Product with id = {book_id} is not found")
+        self.clear_entries()    
 
     def clear_entries(self):
 
