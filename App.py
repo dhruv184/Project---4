@@ -24,12 +24,12 @@ class appGUI:
         self.display_box = tk.Text(master , height = 20 , width = 40)
         self.display_box.grid(row = 0 , column = 2 , rowspan = 9 , padx = 10 , pady = 5)
 
-        self.button_view = tk.Botton(master , text = "View Books" , command = self.view_books)
-        self.button_add = tk.Botton(master , text = "Add Book" , command = self.add_books)
-        self.button_find = tk.Botton(master , text = "Find Book" , command = self.find_books)
-        self.button_save = tk.Botton(master , text = "Save Data" , command = self.save_books)
-        self.button_update = tk.Botton(master , text = "Upadate Book" , command = self.update_books)
-        self.button_exit = tk.Botton(master , text = "Exit" , command = self.master.destroy)
+        self.button_view = tk.Button(master , text = "View Books" , command = self.view_books)
+        self.button_add = tk.Button(master , text = "Add Book" , command = self.add_books)
+        self.button_find = tk.Button(master , text = "Find Book" , command = self.find_books)
+        self.button_save = tk.Button(master , text = "Save Data" , command = self.save_books)
+        self.button_update = tk.Button(master , text = "Upadate Book" , command = self.update_books)
+        self.button_exit = tk.Button(master , text = "Exit" , command = self.master.destroy)
 
         self.label_id.grid(row = 0 , colume = 0 , padx = 10 , pady = 5)
         self.entry_id.grid(row = 0 , column = 1 , padx = 10 , pady = 5)
