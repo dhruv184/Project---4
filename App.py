@@ -21,7 +21,7 @@ class appGUI:
         self.label_author = tk.Label(master , text = "Book Author :")
         self.entry_author = tk.Entry(master)
 
-        self.display_box = tk.Text(master , height = 10 , width = 40)
+        self.display_box = tk.Text(master , height = 30 , width = 40)
         self.display_box.grid(row = 0 , column = 2 , rowspan = 9 , padx = 10 , pady = 5)
 
         self.button_view = tk.Button(master , text = "View Books" , command = self.view_books)
