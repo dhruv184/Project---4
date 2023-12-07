@@ -56,7 +56,7 @@ class appGUI:
         for b in self.library.getBooks():
             self.display_box.insert(tk.END , str(b) + "\n")
     
-    def add_book(self):
+    def add_books(self):
         
         book_id = self.entry_id.get()
         book_name = self.entry_name.get()
