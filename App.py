@@ -28,7 +28,7 @@ class appGUI:
         self.button_add = tk.Button(master , text = "Add Book" , command = self.add_books)
         self.button_find = tk.Button(master , text = "Find Book" , command = self.find_book)
         self.button_save = tk.Button(master , text = "Save Data" , command = self.save_books)
-        self.button_update = tk.Button(master , text = "Upadate Book" , command = self.update_book)
+        self.button_update = tk.Button(master , text = "Update Book" , command = self.update_book)
         self.button_exit = tk.Button(master , text = "Exit" , command = self.master.destroy)
 
         self.label_id.grid(row = 0 , column = 0 , padx = 10 , pady = 5)
@@ -51,7 +51,7 @@ class appGUI:
 
         self.clear_entries()
         self.display_box.delete(1.0 , tk.END)
-        self.display_box.isert(tk.END , "List of Books : \n")
+        self.display_box.insert(tk.END , "List of Books : \n")
         
         for b in self.library.getBooks():
             self.display_box.insert(tk.END , str(b) + "\n")
@@ -64,13 +64,13 @@ class appGUI:
 
         book = Book(book_id, book_name, book_author)
 
-        self.store.addBook(book)
+        self.library.addBook(book)
         self.clear_entries()
 
     def find_book(self):
 
         book_id = self.entry_id.get()
-        book = self.store.findBooks(book_id)
+        book = self.library.findBooks(book_id)
         self.display_box.delete(1.0, tk.END)  
 
         if isinstance(book, Book):
@@ -82,7 +82,7 @@ class appGUI:
 
     def save_books(self):
 
-        self.store.saveData()
+        self.library.saveData()
         self.display_box.delete(1.0, tk.END)  
         self.display_box.insert(tk.END, "Data saved successfully")
 
@@ -93,7 +93,7 @@ class appGUI:
         new_author = self.entry_author.get()
         book = Book(book_id, new_name, new_author)
 
-        self.store.updateBook(book)
+        self.library.updateBook(book)
         self.clear_entries()
 
     def clear_entries(self):

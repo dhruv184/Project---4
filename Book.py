@@ -8,4 +8,4 @@ class Book:
 
     def __str__(self):
 
-        return f" ID : {self.id}\nName : {self.name}\nAuthor : {self.author}\n"    
+        return f"ID : {self.id}\nName : {self.name}\nAuthor : {self.author}\n"    
